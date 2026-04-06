@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+<title>Smart Study Planner</title>
+<link href='style.css' rel='stylesheet'/>
+</head>
+<body>
+<header>
+<div class='logo-group'>
+<h1>Study Planner</h1>
+<p>Your personal learning companion</p>
+</div>
+<div class='header-stats'>
+<div class='stat-pill'>
+<div class='val' id='total-today'>0m</div>
+<div class='lbl'>Today's Total</div>
+</div>
+<div class='streak-badge'>■ 1 day streak</div>
+</div>
+</header>
+<main>
+<aside class='panel'>
+<h2>Add a Subject</h2>
+<input type='text' id='sub-name' placeholder='Subject Name'/>
+<input type='number' id='sub-goal' placeholder='Goal (minutes)'/>
+<div id='color-row'><!-- color dots --></div>
+<button onclick='addSubject()'>+ Add Subject</button>
+</aside>
+<section id='cards-container'></section>
+</main>
+<div id='toaster'></div>
+<script src='app.js'></script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AIperspective</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+<style>
+body {
+  margin:0;
+  font-family:'DM Sans';
+  background:#F5F0E8;
+  color:#1A1612;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
+
+nav {
+  background:#1A1612;
+  color:#fff;
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+nav a {
+  color:#C8C2B8;
+  margin-left:20px;
+  text-decoration:none;
+  font-size:14px;
+}
+
+nav a:hover {
+  color:#fff;
+}
+
+.page {
+  display:none;
+  padding:30px 20px;
+  max-width:800px;
+  margin:auto;
+  flex:1;
+}
+
+.active { display:block; }
+
+h1, h2 {
+  font-family:'Playfair Display';
+}
+
+.hero {
+  background:#1A1612;
+  color:#fff;
+  padding:40px 30px;
+  border-radius:10px;
+}
+
+.hero p {
+  color:#A09890;
+}
+
+.btn {
+  background:#C84B2F;
+  color:#fff;
+  padding:10px 20px;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+.btn:hover {
+  background:#B03E24;
+}
+
+.card {
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:8px;
+  padding:20px;
+  margin:15px 0;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.card:hover {
+  transform:translateY(-3px);
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+input, textarea {
+  width:100%;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:5px;
+  margin-top:5px;
+}
+
+footer {
+  background:#1A1612;
+  color:#aaa;
+  text-align:center;
+  padding:15px;
+  margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div><b>AIperspective</b></div>
+  <div>
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('articles')">Articles</a>
+    <a onclick="showPage('about')">About</a>
+    <a onclick="showPage('contact')">Contact</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="page active">
+  <div class="hero">
+    <h1>The Two Sides of AI</h1>
+    <p>Explore advantages, disadvantages and real-world impact of Artificial Intelligence.</p>
+    <button class="btn" onclick="showArticle('main')">Read Main Article</button>
+  </div>
+</div>
+
+<!-- ARTICLES -->
+<div id="articles" class="page">
+  <h2>Articles</h2>
+  <div id="articlesList"></div>
+</div>
+
+<!-- ARTICLE VIEW -->
+<div id="article" class="page">
+  <button class="btn" onclick="showPage('articles')">← Back</button>
+  <div id="articleContent" style="margin-top:20px;"></div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="page">
+  <h2>About Team</h2>
+  <p>We are AIML students working on this blog as part of our project. Our goal is to explain AI in a simple and understandable way.</p>
+
+  <div class="card" style="margin-top:20px;">
+    <h3>Our Mission</h3>
+    <p>To make complex AI concepts easy to understand and raise awareness about both the benefits and challenges of artificial intelligence.</p>
+  </div>
+
+  <div class="card">
+    <h3>What We Do</h3>
+    <ul>
+      <li>Research real-world AI applications</li>
+      <li>Write simple and informative articles</li>
+      <li>Analyze advantages and risks of AI</li>
+    </ul>
+  </div>
+
+</div> placeholder="Message"></textarea><br><br>
+  <button class="btn">Send Message</button>
+</div>
+
+<footer>
+  <p>© 2026 AIperspective</p>
+</footer>
+
+<script>
+
+const articles = [
+  {
+    id:'main',
+    title:'Advantages and Disadvantages of AI',
+    content:`
+    <h2>Introduction</h2>
+    <p>Artificial Intelligence (AI) is transforming industries across the world. From smartphones to healthcare, AI is becoming an essential part of modern life.</p>
+
+    <h2>Advantages</h2>
+    <ul>
+      <li><strong>Automation:</strong> AI can perform repetitive tasks without fatigue.</li>
+      <li><strong>Accuracy:</strong> Reduces human errors in important systems.</li>
+      <li><strong>Speed:</strong> Processes large amounts of data quickly.</li>
+      <li><strong>24/7 Availability:</strong> Works continuously without breaks.</li>
+      <li><strong>Better Decision Making:</strong> Helps analyze data efficiently.</li>
+    </ul>
+
+    <h2>Disadvantages</h2>
+    <ul>
+      <li><strong>Job Loss:</strong> Automation may reduce employment opportunities.</li>
+      <li><strong>High Cost:</strong> Developing AI systems is expensive.</li>
+      <li><strong>Lack of Creativity:</strong> AI cannot think emotionally like humans.</li>
+      <li><strong>Bias:</strong> AI systems can reflect biased data.</li>
+      <li><strong>Security Risks:</strong> Can be misused for cyber attacks.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>AI is powerful but must be used responsibly. Balancing its benefits and risks is important for the future.</p>
+    `
+  },
+
+  {
+    id:'future',
+    title:'The Future of Artificial Intelligence',
+    content:`
+    <h2>Introduction</h2>
+    <p>The future of AI is both exciting and uncertain. As technology evolves, AI will play a bigger role in our lives.</p>
+
+    <h2>Growth Areas</h2>
+    <ul>
+      <li><strong>Healthcare:</strong> AI will improve diagnosis and treatment.</li>
+      <li><strong>Education:</strong> Personalized learning will become common.</li>
+      <li><strong>Automation:</strong> Smart machines will handle daily tasks.</li>
+    </ul>
+
+    <h2>Challenges</h2>
+    <ul>
+      <li>Ethical concerns about AI decisions</li>
+      <li>Data privacy issues</li>
+      <li>Dependence on technology</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>The future of AI depends on how humans control and guide its development.</p>
+    `
+  }
+];
+
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function loadArticles(){
+  const container = document.getElementById('articlesList');
+  container.innerHTML = articles.map(a=>`<div class="card" onclick="showArticle('${a.id}')"><h3>${a.title}</h3></div>`).join('');
+}
+
+function showArticle(id){
+  const article = articles.find(a=>a.id===id);
+  document.getElementById('articleContent').innerHTML = `<h1>${article.title}</h1>${article.content}`;
+  showPage('article');
+}
+
+loadArticles();
+
+</script>
+
+</body>
+</html>
